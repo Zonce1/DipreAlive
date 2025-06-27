@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Andrea Diprè - Sondaggio e Info</title>
+    <meta property="og:title" content="Andrea Diprè - Sondaggio e Info">
+    <meta property="og:description" content="Partecipa al sondaggio su Diprè e scopri info e curiosità!">
+    <meta property="og:image" content="https://cdn.riviera24.it/photogallery_new/images/2015/06/andrea-dipre-246190.jpg">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+      body {
+        background-color: #2a1746; /* viola scuro */
+        font-family: Arial, sans-serif;
+      }
+      .main-title {
+        text-align: center;
+        font-size: 2.7em;
+        margin-top: 38px;
+        margin-bottom: 10px;
+        letter-spacing: 0.04em;
+        color: #fff;
+        font-weight: bold;
+        text-shadow:
+          0 2px 8px rgba(0,0,0,0.18),
+          0 0 0.5em #522d8d,
+          0 0 1.5em #522d8d;
+        background: rgba(255,255,255,0.16);
+        border-radius: 20px;
+        padding: 20px 38px 14px 38px;
+        box-shadow: 0 4px 24px 0 rgba(42,23,70,0.22);
+        display: inline-block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .main-title-wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+      .centered-box {
+        background: #fff;
+        color: #222;
+        margin: 30px auto 20px auto;
+        padding: 40px 50px 32px 50px;
+        width: fit-content;
+        min-width: 370px;
+        border-radius: 15px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.10);
+        text-align: center;
+        position: relative;
+        overflow: visible;
+      }
+      .centered-box h3 {
+        font-size: 1.35em;
+        margin-bottom: 16px;
+        margin-top: 0;
+        color: #164f8b;
+      }
+      .centered-box .subtitle {
+        font-size: 1.1em;
+        margin-bottom: 22px;
+        color: #333;
+        font-style: italic;
+      }
+      .centered-box ol {
+        text-align: left;
+        display: inline-block;
+        margin: 12px auto 0 auto;
+        font-size: 1.09em;
+        color: #17414e;
+        line-height: 1.5;
+      }
+      .centered-box li {
+        margin-bottom: 5px;
+      }
+      .centered-box .old-point {
+        color: #555;
+        font-size: 0.97em;
+        margin-top: 2px;
+        margin-left: 15px;
+        font-style: italic;
+        opacity: 0.75;
+      }
+      .survey-box {
+        background: #fff;
+        color: #222;
+        margin: 0 auto 38px auto;
+        padding: 30px 40px 22px 40px;
+        width: fit-content;
+        min-width: 320px;
+        border-radius: 13px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+        text-align: center;
+        position: relative;
+        overflow: visible;
+      }
+      .survey-title {
+        font-size: 1.6em;
+        margin-bottom: 22px;
+        margin-top: 0;
+      }
+      .options {
+        margin-top: 18px;
+      }
+      .option-label {
+        display: block;
+        margin: 0 auto 18px auto;
+        font-size: 1.22em;
+        cursor: pointer;
+        text-align: left;
+        max-width: 290px;
+      }
+      .note {
+        font-size: 0.98em;
+        color: #0074D9;
+        margin-top: 3px;
+        margin-left: 30px;
+      }
+      .note-no {
+        font-size: 0.98em;
+        color: #c00;
+        margin-top: 3px;
+        margin-left: 30px;
+      }
+      input[type="radio"] {
+        margin-right: 7px;
+        accent-color: #0074D9;
+      }
+      table {
+        margin: 30px auto 25px auto;
+        border-collapse: collapse;
+        background: #fff;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      }
+      th, td { border: 1px solid #ccc; padding: 10px 20px; text-align: center; }
+      th { background: #f5f5f5; }
+      /* Stelle festa */
+      .star, .angry-face {
+        position: fixed;
+        z-index: 9999;
+        font-size: 2em;
+        pointer-events: none;
+        will-change: transform, opacity;
+        left: 0;
+        top: 0;
+        user-select: none;
+      }
+      .star {
+        color: gold;
+        animation: star-fall 3s linear forwards;
+      }
+      @keyframes star-fall {
+        0% {
+          opacity: 1;
+          transform: translateY(0) scale(1.1) rotate(0deg);
+        }
+        80% {
+          opacity: 1;
+          filter: brightness(1.2);
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(110vh) scale(0.8) rotate(360deg);
+        }
+      }
+      .angry-face {
+        animation: angry-fall 2.8s linear forwards;
+        filter: drop-shadow(0 0 8px #a00a);
+      }
+      @keyframes angry-fall {
+        0% {
+          opacity: 1;
+          transform: translateY(0) scale(1.1) rotate(-8deg);
+        }
+        70% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(110vh) scale(0.8) rotate(42deg);
+        }
+      }
+      .centered-bold-box {
+        text-align: center;
+        font-weight: bold;
+        font-size: 1.25em;
+        margin-top: 40px;
+        margin-bottom: 18px;
+        letter-spacing: 0.02em;
+        background: #fff;
+        border-radius: 15px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.10);
+        display: inline-block;
+        padding: 18px 36px 16px 36px;
+        width: fit-content;
+      }
+      .centered-bold-box-wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+      .highlight-photo {
+        background: rgba(255,255,255,0.82);
+        border-radius: 22px;
+        box-shadow: 0 4px 16px rgba(50,20,100,0.15), 0 1.5px 8px rgba(42,23,70,0.10);
+        padding: 26px 18px 24px 18px;
+        max-width: 420px;
+        margin: 0 auto 44px auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: box-shadow 0.2s;
+      }
+      .hero-img {
+        display: block;
+        margin: 0 auto 0 auto;
+        max-width: 380px;
+        max-height: 400px;
+        border-radius: 18px;
+        box-shadow: 0 4px 18px rgba(0,0,0,0.16);
+        border: 3px solid #52308f;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-title-wrapper">
+      <div class="main-title">Andrea Diprè</div>
+    </div>
+    <div class="survey-box">
+      <h2 class="survey-title">Ti piace Diprè?</h2>
+      <form id="surveyForm">
+        <div class="options">
+          <label class="option-label">
+            <input type="radio" name="dipre" value="si" id="yesOption">
+            Sì
+            <div class="note">Il 98% delle persone hanno dichiarato di amarlo</div>
+          </label>
+          <label class="option-label">
+            <input type="radio" name="dipre" value="no" id="noOption">
+            No
+            <div class="note-no">Il 2% delle persone non capisce niente</div>
+          </label>
+        </div>
+      </form>
+    </div>
+    <div class="centered-box">
+      <h3>Il mistero di Diprè</h3>
+      <div class="subtitle">
+        Una domanda che divide il mondo: Andrea Diprè è vivo o morto?<br>
+        La risposta potrebbe cambiare la tua giornata.
+      </div>
+      <div style="margin-bottom: 10px; color:#235a8c; font-weight: 500;">
+        Ecco perché è fondamentale saperlo:
+      </div>
+      <ol>
+        <li>Perché la sua presenza illumina il panorama culturale italiano.</li>
+        <li>
+         Se muore prima di me mi ammazzo
+          <div class="old-point"></div>
+        </li>
+      </ol>
+    </div>
+    <table>
+      <tr>
+        <th>Nome</th>
+        <th>Anni</th>
+        <th>religione</th>
+      </tr>
+      <tr>
+        <td>Andrea</td>
+        <td>Troppi</td>
+        <td>Dipreismo</td>
+      </tr>
+    </table>
+    <div class="centered-bold-box-wrapper">
+      <div class="centered-bold-box">
+        Ecco una foto del nostro eroe
+      </div>
+    </div>
+    <div class="highlight-photo">
+      <img
+        class="hero-img"
+        src="https://cdn.riviera24.it/photogallery_new/images/2015/06/andrea-dipre-246190.jpg"
+        alt="Andrea Diprè"
+      />
+    </div>
+    <script>
+      // Stelle animate al click su "Sì" (cascata unica, tutte insieme)
+      let starsFalling = false;
+      function launchStarsCascade() {
+        if (starsFalling) return;
+        starsFalling = true;
+        const starCount = 140;
+        const colors = ["gold", "#f5d142", "#ffd700", "#fff8dc", "#ffe066", "#fff700", "#fffef0"];
+        const vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+        for (let i = 0; i < starCount; i++) {
+          const star = document.createElement("span");
+          star.className = "star";
+          star.textContent = "★";
+          // Cascata: stelle sparse in orizzontale in tutta la viewport
+          const leftPerc = (i / starCount) * 100 + (Math.random() * 1.5 - 0.75);
+          star.style.left = leftPerc + "vw";
+          star.style.top = (-8 + Math.random()*8) + "vh";
+          star.style.fontSize = (1.2 + Math.random()*2.5) + "em";
+          star.style.color = colors[Math.floor(Math.random()*colors.length)];
+          star.style.transform = `rotate(${Math.random()*360}deg)`;
+          document.body.appendChild(star);
+
+          setTimeout(() => {
+            star.remove();
+          }, 3200 + Math.random() * 300);
+        }
+        setTimeout(() => { starsFalling = false; }, 3500);
+      }
+
+      // Faccine arrabbiate al click su "No"
+      let angryFalling = false;
+      function launchAngryCascade() {
+        if (angryFalling) return;
+        angryFalling = true;
+        const angryCount = 120;
+        const faces = ["😡","😠","👿","🤬"];
+        const vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+        for (let i = 0; i < angryCount; i++) {
+          const face = document.createElement("span");
+          face.className = "angry-face";
+          face.textContent = faces[Math.floor(Math.random()*faces.length)];
+          const leftPerc = (i / angryCount) * 100 + (Math.random() * 1.5 - 0.75);
+          face.style.left = leftPerc + "vw";
+          face.style.top = (-8 + Math.random()*8) + "vh";
+          face.style.fontSize = (1.5 + Math.random()*2.5) + "em";
+          face.style.transform = `rotate(${Math.random()*30-15}deg)`;
+          document.body.appendChild(face);
+
+          setTimeout(() => {
+            face.remove();
+          }, 2600 + Math.random() * 500);
+        }
+        setTimeout(() => { angryFalling = false; }, 3000);
+      }
+
+      document.getElementById("yesOption").addEventListener("change", function() {
+        if(this.checked) {
+          launchStarsCascade();
+        }
+      });
+
+      document.getElementById("noOption").addEventListener("change", function() {
+        if(this.checked) {
+          launchAngryCascade();
+        }
+      });
+    </script>
+  </body>
+</html>
